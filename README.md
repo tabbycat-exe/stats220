@@ -7,4 +7,4 @@ A little about me:
 - I am taking STATS 220 because I enjoy data science and would like to expand my knowledge in coding within the world of data
 - I am interested in learning about data wrangling and utilising code to visualise data
 
-A meme that captures how I currently feel about my university studies is ![](https://tenor.com/view/jamma-orb-jamma-orb-plankton-cursed-gif-8828974721685493246)
+A meme that captures how I currently feel about my university studies is ![](https://tenor.com/view/plankton-plankton-meme-gif-15640350090336605258)
