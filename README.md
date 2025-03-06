@@ -8,7 +8,7 @@
 3. I am interested in learning about data wrangling and utilising code to visualise data
 
 <h2> ⋆｡°✩ Basic Facts</h2>
-- My favourite colour is pastel blue
-- My favourite animal is either a llama or a shark
+-My favourite colour is pastel blue
+-My favourite animal is either a llama or a shark
 
 A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/2Q2vioFDFEoAAAAd/tenor.gif)
