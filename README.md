@@ -15,4 +15,4 @@
 
 A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/2Q2vioFDFEoAAAAd/tenor.gif)
 
-A gif that encapsules my mood at my 9am lab is ![](https://media1.tenor.com/m/fP-Zt1WJK-4AAAAC/shark-typing.gif)
+A gif that sums up my mood at my 9am lab is ![](https://media1.tenor.com/m/fP-Zt1WJK-4AAAAC/shark-typing.gif)
