@@ -121,14 +121,6 @@ When taking all of my entries of rubbish amounts, if I wanted to find out the av
 The graph below visualises a separated day by day plot, where each bar is colour coded with the alternating types of rubbish recorded and entered.
 
 ```{r}
-plot_1 <- ggplot(data = separated_data) +
-  geom_bar(aes(x = day_of_week,
-               fill = rubbish_type)) +
-  labs(title = "Most Popular Trash Type?",
-       subtitle = "Comparing the reoccurrence of rubbish type entries between days for project 2",
-       caption = "Amount of entries : 20",
-       x = "Day of the Week",
-       y = "Count of Entries")
 print(plot_1)
 ```
 
@@ -141,14 +133,6 @@ print(plot_1)
 The graph below visualises the rubbish scale (as mentioned previously) on the x-axis, colour coded with the time of day entered for each scale. For example we can see that every type of time of day (morning, afternoon, evening, night) has been entered when submissions rate the litter amount on a 2.
 
 ```{r}
-plot_2 <- ggplot(data = separated_data) +
-  geom_bar(aes(x = rubbish_amount,
-               fill = time_of_day)) +
-  labs(title = "What Time Of Day Has The Most Rubbish?",
-       subtitle = "Comparing the scale of rubbish at each time of day for project 2",
-       caption = "Amount of entries : 20",
-       x = "Rubbish Amount Scale (1-5)",
-       y = "Count of Entries")
 print(plot_2)
 ```
 
