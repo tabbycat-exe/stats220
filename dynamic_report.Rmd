@@ -86,7 +86,7 @@ plot_2 <- ggplot(data = separated_data) +
 
 ```
 
-## Tracking Waste On The Way To University
+## ⋆｡°✩Tracking Waste On The Way To University
 *This report will showcase summarised values and plots of data I have collected over the past week, utilising entries on a google form to produce numerical and categorical information regarding the amount and types of rubbish noticed along the path I use to get to university.*
 
 ### I collected data on, and will be analysing :
@@ -96,7 +96,7 @@ plot_2 <- ggplot(data = separated_data) +
 - The day of the week that the entry is submitted
 - The time of day that the entry is submitted
 
-### Summarised Value #1 (Max)
+### ⋆｡°✩Summarised Value #1 (Max)
 
 When analysing my data, I can see that when walking along the path for a week :
 
@@ -110,13 +110,13 @@ When analysing my data, I can see that when walking along the path for a week :
 
 This means that the highest amount of times a rubbish type was noticed is `r max_summed` times, meaning it was a tie between the plastic bottles and the food wrappers.
 
-### Summarised Value #2 (Mean)
+### ⋆｡°✩Summarised Value #2 (Mean)
 
 One of my required questions was to enter on a scale of 1-5 inclusive, how littered the pathway was -- with 1 being "no rubbish and completely clean" and 5 being "completely littered and difficult to look anywhere without seeing rubbish"
 
 When taking all of my entries of rubbish amounts, if I wanted to find out the average, a mean of `r mean_rubbish_amount` would often suggest that the rounded average submission would be `r mean_rubbish_amount_rounded`
 
-### Graph Plot #1 (Most Popular Trash Type Per Day)
+### ⋆｡°✩Graph Plot #1 (Most Popular Trash Type Per Day)
 
 The graph below visualises a separated day by day plot, where each bar is colour coded with the alternating types of rubbish recorded and entered.
 
@@ -136,7 +136,7 @@ print(plot_1)
 - This result could be expected seeing as the path is quite close to campus, most students would be littering trash that is related with eating or drinking as they would be spending a reasonable amount of time on campus. The "other" types of trash is also predictable to be quite prevalent as this option could encompass a lot of types of rubbish not offered as an option.
 - We can also notice that food scraps are the least frequently noticed option, which may be because of wildlife/insects eating the food scraps or the fact that it is quite unlikely for actual food to be littered when it could be eaten or stored for later.
 
-### Graph Plot #2 (Rubbish Amount on a Time Scale)
+### ⋆｡°✩Graph Plot #2 (Rubbish Amount on a Time Scale)
 
 The graph below visualises the rubbish scale (as mentioned previously) on the x-axis, colour coded with the time of day entered for each scale. For example we can see that every type of time of day (morning, afternoon, evening, night) has been entered when submissions rate the litter amount on a 2.
 
@@ -153,3 +153,7 @@ print(plot_2)
 ```
 
 - This plot concludes that the afternoon and evenings are the most prevalent time for noticing large amounts of rubbish on the path, potentially because it is the most popular time for university students to be heading home, causing it to be a central area and therefore more potential to be littered on.
+
+![](https://media.tenor.com/S1MIclkGeK0AAAAM/blank-stare-alpacas.gif)
+
+*me during this report eating 20 snacks*
