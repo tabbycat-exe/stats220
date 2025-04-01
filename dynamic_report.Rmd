@@ -1,0 +1,155 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+    color: #E8DAF9;
+    background-color: #A7ABDE;
+}
+p {
+    font-family: arial;
+}
+
+```
+
+```{r}
+
+library(tidyverse)
+
+csvfile <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7C54V0WQ8oN6CQS4VINuTPrinvgCQaPpdswpI7AmWD1uDmDp3QeUCnnzPdraDlKfwRPXpI84iTj0f/pub?output=csv"
+
+#Loading my CSV file and renaming the variables
+
+logged_data <- read_csv(csvfile) %>%
+  rename(day_of_week = 2,
+         rubbish_amount = 3,
+         rubbish_type = 4,
+         time_of_day = 5)
+
+#Cleaning my data
+
+separated_data <- logged_data %>%
+  separate_rows(rubbish_type, sep = ", ")
+
+#Producing summary values #1 (highest count of rubbish type)
+
+plastic_bottle_sum <- sum(separated_data$rubbish_type == "Plastic bottles")
+food_wrappers_sum <- sum(separated_data$rubbish_type == "Food wrappers")
+used_cigarettes_sum <- sum(separated_data$rubbish_type == "Used cigarettes")
+paper_or_cardboard_sum <- sum(separated_data$rubbish_type == "Paper or cardboard")
+food_scraps_sum <- sum(separated_data$rubbish_type == "Food scraps")
+other_sum <- sum(separated_data$rubbish_type == "Other")
+no_rubbish_sum <- sum(separated_data$rubbish_type == "I did not notice any rubbish")
+
+summed <- c(plastic_bottle_sum, food_wrappers_sum, used_cigarettes_sum, paper_or_cardboard_sum, food_scraps_sum, other_sum, no_rubbish_sum)
+max_summed <- max(summed)
+
+#Producing summary values #2 (mean rubbish amount)
+
+mean_rubbish_amount <- logged_data$rubbish_amount %>%
+  mean()
+
+mean_rubbish_amount_rounded <- round(mean_rubbish_amount)
+
+#Creating visual plots - Plot#1 (Most Popular Trash Type)
+
+plot_1 <- ggplot(data = separated_data) +
+  geom_bar(aes(x = day_of_week,
+               fill = rubbish_type)) +
+  labs(title = "Most Popular Trash Type?",
+       subtitle = "Comparing the reoccurrence of rubbish type entries between days for project 2",
+       caption = "Amount of entries : 20",
+       x = "Day of the Week",
+       y = "Count of Entries")
+
+#Creating visual plots - Plot#2 (Rubbish Amount on a Time Scale)
+
+plot_2 <- ggplot(data = separated_data) +
+  geom_bar(aes(x = rubbish_amount,
+               fill = time_of_day)) +
+  labs(title = "What Time Of Day Has The Most Rubbish?",
+       subtitle = "Comparing the scale of rubbish at each time of day for project 2",
+       caption = "Amount of entries : 20",
+       x = "Rubbish Amount Scale (1-5)",
+       y = "Count of Entries")
+
+#Summary
+
+#The R code provided above presents two summarised values and two plotted graphs. My first summarised value includes the highest count of entered rubbish types, which is a tie between food wrappers and plastic bottles -- both at 12. The next summarised value is the mean of the rubbish amount scale, which averages at 2.75 and when rounded -- becomes 3. My first bar plot presents bars that have each day of the week on the x-axis, and are filled in with each colour to represent the count of the type of rubbish entered on each day. The second bar plot showcases the rubbish scale on the x-axis and the time of day as the filled colour, visualising what time of day often has the most rubbish spotted. 
+
+```
+
+## Tracking Waste On The Way To University
+*This report will showcase summarised values and plots of data I have collected over the past week, utilising entries on a google form to produce numerical and categorical information regarding the amount and types of rubbish noticed along the path I use to get to university.*
+
+### I collected data on, and will be analysing :
+
+- The amount of rubbish (collected on a numerical scale of 1-5)
+- The types of rubbish
+- The day of the week that the entry is submitted
+- The time of day that the entry is submitted
+
+### Summarised Value #1 (Max)
+
+When analysing my data, I can see that when walking along the path for a week :
+
+- **Plastic bottles** were entered `r plastic_bottle_sum` times
+- **Used cigarettes** were not noticed at all, with a total of `r used_cigarettes_sum` times
+- **Food wrappers** were additionally noticed `r food_wrappers_sum` times
+- **Paper and/or cardboard** were noticed `r paper_or_cardboard_sum` times
+- **Food scraps** were only noticed `r food_scraps_sum` times
+- **Other types of rubbish** was noticed `r other_sum` times
+- and the option of **not seeing rubbish at all** was not entered at all, with a total of `r no_rubbish_sum` times.
+
+This means that the highest amount of times a rubbish type was noticed is `r max_summed` times, meaning it was a tie between the plastic bottles and the food wrappers.
+
+### Summarised Value #2 (Mean)
+
+One of my required questions was to enter on a scale of 1-5 inclusive, how littered the pathway was -- with 1 being "no rubbish and completely clean" and 5 being "completely littered and difficult to look anywhere without seeing rubbish"
+
+When taking all of my entries of rubbish amounts, if I wanted to find out the average, a mean of `r mean_rubbish_amount` would often suggest that the rounded average submission would be `r mean_rubbish_amount_rounded`
+
+### Graph Plot #1 (Most Popular Trash Type Per Day)
+
+The graph below visualises a separated day by day plot, where each bar is colour coded with the alternating types of rubbish recorded and entered.
+
+```{r}
+plot_1 <- ggplot(data = separated_data) +
+  geom_bar(aes(x = day_of_week,
+               fill = rubbish_type)) +
+  labs(title = "Most Popular Trash Type?",
+       subtitle = "Comparing the reoccurrence of rubbish type entries between days for project 2",
+       caption = "Amount of entries : 20",
+       x = "Day of the Week",
+       y = "Count of Entries")
+print(plot_1)
+```
+
+- Food wrappers, plastic bottles, and "other" types of rubbish seem to be the most prevalent, all showing up in 5/7 days.
+- This result could be expected seeing as the path is quite close to campus, most students would be littering trash that is related with eating or drinking as they would be spending a reasonable amount of time on campus. The "other" types of trash is also predictable to be quite prevalent as this option could encompass a lot of types of rubbish not offered as an option.
+- We can also notice that food scraps are the least frequently noticed option, which may be because of wildlife/insects eating the food scraps or the fact that it is quite unlikely for actual food to be littered when it could be eaten or stored for later.
+
+### Graph Plot #2 (Rubbish Amount on a Time Scale)
+
+The graph below visualises the rubbish scale (as mentioned previously) on the x-axis, colour coded with the time of day entered for each scale. For example we can see that every type of time of day (morning, afternoon, evening, night) has been entered when submissions rate the litter amount on a 2.
+
+```{r}
+plot_2 <- ggplot(data = separated_data) +
+  geom_bar(aes(x = rubbish_amount,
+               fill = time_of_day)) +
+  labs(title = "What Time Of Day Has The Most Rubbish?",
+       subtitle = "Comparing the scale of rubbish at each time of day for project 2",
+       caption = "Amount of entries : 20",
+       x = "Rubbish Amount Scale (1-5)",
+       y = "Count of Entries")
+print(plot_2)
+```
+
+- This plot concludes that the afternoon and evenings are the most prevalent time for noticing large amounts of rubbish on the path, potentially because it is the most popular time for university students to be heading home, causing it to be a central area and therefore more potential to be littered on.
