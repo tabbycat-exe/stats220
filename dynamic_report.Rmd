@@ -137,6 +137,7 @@ print(plot_2)
 ```
 
 - This plot concludes that the afternoon and evenings are the most prevalent time for noticing large amounts of rubbish on the path, potentially because it is the most popular time for university students to be heading home, causing it to be a central area and therefore more potential to be littered on.
+- This means that if more data was taken to assist in proving, fortifying and cementing these conclusions -- the university could take efforts to implement recycling/trash bins along this path, seeing as most of the litter seems to be in the evening it means that the students are going home, and probably won't be coming back to campus to find a bin to dispose their litter in.
 
 ![](https://media.tenor.com/S1MIclkGeK0AAAAM/blank-stare-alpacas.gif)
 
