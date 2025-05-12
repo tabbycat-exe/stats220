@@ -1,0 +1,83 @@
+---
+title: "The Factors That Go Into Littering On Pathways -- A Visual Story!"
+subtitle: "STATS 220 Semester One 2025"
+output: html_document
+date: "2025-04-22"
+author: "Tabitha Hughes"
+---
+
+```{css echo=FALSE}
+body {
+color: #df65b0;
+Background-color: #d4b9da;
+	}
+```
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{js}
+$(function() {
+  $(".level2").css('visibility', 'hidden');
+  $(".level2").first().css('visibility', 'visible');
+  $(".container-fluid").height($(".container-fluid").height() + 300);
+  $(window).on('scroll', function() {
+    $('h2').each(function() {
+      var h2Top = $(this).offset().top - $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (h2Top >= 0 && h2Top <= windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'visible');
+      } else if (h2Top > windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'hidden');
+      }
+    });
+  });
+})
+```
+
+```{css}
+.figcaption {display: none}
+```
+
+## Plot 1: Weekdays or Weekends, Which Is More Litter-Worthy?
+
+![Displayed is a combination of a jitter and point graph, showcasing all the collected data points throughout each recorded day/time in combination with the litter amount also being recorded. The graph visualises a higher median on the weekday section, with more data points scattered around the "3" mark of litter amount, while weekends only had a majority of the "2" amount. However, weekends seem to have more outliers.](C:\A\University\Year 3 - Sem 1\Stats 220\Project4\plot1.png)
+
+
+1. I utilised a combination of a jitter and a point plot to effectively and synonymously visualise all of my data points while showcasing the median of litter amounts during the weekdays and weekends.
+
+2. The footpath I was observing is in the middle of UOA itself and the UOA accommodation halls, making it a popular path for university students to use for a quick route to university. While it's evident that there may be a slight imbalance of data collection points, this is notably due to the  minimal amount of days a weekend has in comparison to the weekdays (5 vs 2).
+
+3. Evidently, we can see that there is a notable level of clustering around the higher littering amount marks such as 3 and 4, with the median rubbish amount on a weekday residing at 3, in comparison to the weekends amount of 2. This can be suggested due to the much higher amount of people that would be going along the path on a weekday, as a majority of them would be on their way **to** or **back** from university, heightening any possibility of littering occurring.
+
+4. Additionally, more bikers would probably be using that path on a weekend in comparison to university students, implying that bikers evidently are much less likely to litter due to the difficulty to consume any litter-like materials while biking, as well as most cyclists being a little older than university students.
+
+5. We can see that there are actually a noticeable amount of **outliers** in the weekend data points, visualising to the reader that if more data was collected, potential alternative clusters could be formed in places that aren't the current median, **or** that events and special occasions could happen on the weekends, sparking less or more civilians that could litter on that pathway.
+
+## Plot 2: More People = More Rubbish?
+
+![I utilised a line and point graph, to visualise a potential trend while pinpointing my data points on the graph to showcase clusters and exact points. The two variables I included were "footpath busyness" and the "amount of rubbish types recorded per data submission". The graph appears to grow upwards in a heightening trend as the footpath busyness rises.](C:\A\University\Year 3 - Sem 1\Stats 220\Project4\plot2.png)
+
+1. I created the "rubbish type count per submission" through counting the commas in each rubbish_type submission (without separating the rows) and then +1 to that count. This ensured that the very last variable, if there were more than 1 submitted was counted
+
+2. There is an evident upward trend, as the footpath busyness increases, the multiple types of rubbish submissions tend to increase as well, with submissions that rate the footpath busyness a 4, all include a rubbish type count of either 3 or above, indicating that the more busy the path is -- the much more likely there is to be more variations of litter.
+
+3. This possibly lets the reader assume that there would be **more** litter overall as the busyness increases, without needing to create our own graph to see this.
+
+4. The line graph effectively assists the audience in recognising and viewing any trend associated with the data, making it easier to track dynamic data while being able to visually make conclusions in conjunction with numeric data itself!
+
+## Plot 3: Does The Sun Dictate Footpath Busyness?
+
+![A visually (if you like pink..) appealing count plot that showcases a combination of three variables, including a timestamp of hours of the day (missing 3PM) starting from 10AM. The other two variables consist of the weather, and how busy the footpath is. The busyness is showcased in a colour gradient, from light (not busy) to dark (very busy) in each dot that is plotted from the data. The dot SIZE indicates the count (n) of observations that I collected in relation to the weather/time combination.](C:\A\University\Year 3 - Sem 1\Stats 220\Project4\plot3.png)
+
+1. The graph plot showcases (with the help of the dot size and colour gradient) that there is the largest cluster of busyness from around 12PM until 4PM, with the darker and larger data points additionally showcasing that the "cool" and "sunny" weather types seem to be the most popular for individuals to be using the footpath in conjunction with these observations.
+
+2. While 8PM to 10PM seem to have a few observations, they're mainly clustered around the cold and cloudy weather types, which makes partial sense due to less of an inclination to walk around at a later time of night, especially while it is of a colder temperature -- leading into the evident observation of a much less busier atmosphere with the light pink!
+
+3. We can use this information in combination with plot 1 to potentially make an assumption that on weekdays, around 12PM on a sunny day -- this could be when we would observe the most amount of litter on the pathway, and potentially identify ways to identify the causes and reduce this. This is around lunchtime, so potentially having nearby cafes or marts offer reusable utensils or packaging to reduce the amount of littering could help prevent this, or even placing rubbish bins along the pathway could inevitably reduce the overall amount of rubbish dumping.
+
+
+
